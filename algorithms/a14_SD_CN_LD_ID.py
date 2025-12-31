@@ -1,0 +1,55 @@
+# algorithms/a14_SD_CN_LD_ID.py
+
+from collections import defaultdict
+import heapq
+
+def color_graph(graph, max_node):
+    """
+    Saturation Degree coloring with tie-breakers:
+    SD → CN → LD → ID
+    """
+    coloring = {}
+    degrees = {v: len(neighbors) for v, neighbors in graph.items()}
+    cone_numbers = {v: degrees[v] + 1 for v in graph}
+    neighbor_colors = defaultdict(set)
+    id_score = defaultdict(int)
+    saturation = defaultdict(int)
+
+    # Priority tuple: (-SD, -CN, -LD, -ID, node_id)
+    heap = [(-0, -cone_numbers[v], -degrees[v], -0, v) for v in graph]
+    heapq.heapify(heap)
+
+    while heap:
+        _, _, _, _, v = heapq.heappop(heap)
+
+        if v in coloring:
+            continue  # Already colored
+
+        # Assign smallest available color
+        used_colors = {coloring[n] for n in graph[v] if n in coloring}
+        color = 0
+        while color in used_colors:
+            color += 1
+        coloring[v] = color
+
+        # Update neighbors
+        for neighbor in graph[v]:
+            if neighbor in coloring:
+                continue
+
+            if color not in neighbor_colors[neighbor]:
+                neighbor_colors[neighbor].add(color)
+                saturation[neighbor] += 1
+
+            id_score[neighbor] += 1
+
+            # Push updated priority for neighbor
+            heapq.heappush(heap, (
+                -saturation[neighbor],
+                -cone_numbers[neighbor],
+                -degrees[neighbor],
+                -id_score[neighbor],
+                neighbor
+            ))
+
+    return coloring
