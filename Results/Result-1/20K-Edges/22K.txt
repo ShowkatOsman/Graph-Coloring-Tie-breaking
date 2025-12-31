@@ -1,0 +1,38 @@
+Graph Statistics:
+Nodes       : 1693
+Edges       : 22110
+Max Degree  : 171
+Avg Degree  : 26.12
+Self-loops  : 0
+Duplicates  : 0
+
+Algorithm       | Colors Used  | Conflicts  | Time (s)  
+------------------------------------------------------------
+SD              | 4            | 0          | 0.0707    
+ID              | 7            | 0          | 0.1060    
+LDF             | 6            | 0          | 0.0234    
+SL              | 6            | 0          | 0.0715    
+SD+ID           | 4            | 0          | 0.3094    
+ID+SD           | 6            | 0          | 0.3697    
+SD+ID+LDF       | 4            | 0          | 0.3648    
+ID+SD+LDF       | 6            | 0          | 0.3506    
+SD+ID+CN        | 4            | 0          | 0.0845    
+SD+CN+ID        | 4            | 0          | 0.1128    
+SD+LD+CN        | 4            | 0          | 0.0759    
+SD+CN+LD        | 4            | 0          | 0.1045    
+ID+SD+CN        | 6            | 0          | 0.0914    
+ID+CN+SD        | 6            | 0          | 0.0908    
+ID+LD+CN        | 6            | 0          | 0.1128    
+ID+CN+LD        | 6            | 0          | 0.1245    
+SD+ID+LD+CN     | 4            | 0          | 0.1026    
+SD+ID+CN+LD     | 4            | 0          | 0.1069    
+SD+LD+ID+CN     | 4            | 0          | 0.0795    
+SD+LD+CN+ID     | 4            | 0          | 0.0994    
+SD+CN+ID+LD     | 4            | 0          | 0.1076    
+SD+CN+LD+ID     | 4            | 0          | 0.1133    
+ID+SD+LD+CN     | 6            | 0          | 0.0967    
+ID+SD+CN+LD     | 6            | 0          | 0.1665    
+ID+CN+SD+LD     | 6            | 0          | 0.0810    
+ID+CN+LD+SD     | 6            | 0          | 0.1018    
+ID+LD+CN+SD     | 6            | 0          | 0.0995    
+ID+LD+SD+CN     | 6            | 0          | 0.0831    
